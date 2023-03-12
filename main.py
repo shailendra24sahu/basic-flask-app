@@ -8,11 +8,11 @@ app=Flask(__name__)
 def homepage():
     return "<h1>Welcome to the home page<h1>"
 
-@app.route("/add",methods=['POST'])
+@app.route("/add",methods=['POST'])    #this will run over postman, as the request is json file
 def addition():
     if request.method=="POST":
         result=int(request.json['num1']) + int(request.json['num2'])
         return jsonify(" The summation is {}".format(result))
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5000)
+    app.run(port=5000)
